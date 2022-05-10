@@ -65,88 +65,76 @@ var total = 0;
 
 // Exercise 1
 function buy(id) {
-  const productArray = products.filter(user => user.id == id); 
+  const productArray = products.filter((user) => user.id == id);
   cartList.push(productArray[0]);
-  console.log("Unfiltered cart list", cartList);
 
   calculateTotal();
 
   generateCart();
-  applyPromotionsCart()
+  applyPromotionsCart();
 }
 
 // Exercise 2
 function cleanCart() {
-
   cartList = [];
 }
 
 // Exercise 3
 function calculateTotal() {
   let total = cartList.reduce((sum, item) => sum + item.price, 0);
-
 }
 
 // Exercise 4
 function generateCart() {
-
   const count = {};
-// get the count for each products.
- cartList.forEach(element => {
+  // get the count for each products.
+  cartList.forEach((element) => {
     count[element.name] = (count[element.name] || 0) + 1;
   });
- 
 
   const uniqueItems = [];
-//create a new array with only unique elements 
-const uniqueArr = cartList.filter(element => {
-  const isDuplicate = uniqueItems.includes(element.id);
+  //create a new array with only unique elements
+  const uniqueArr = cartList.filter((element) => {
+    const isDuplicate = uniqueItems.includes(element.id);
 
-  if (!isDuplicate) {
-    uniqueItems.push(element.id);
+    if (!isDuplicate) {
+      uniqueItems.push(element.id);
 
-    return true;
-  }
+      return true;
+    }
 
-  return false;
-});
+    return false;
+  });
 
+  cart = [];
+  uniqueArr.forEach((item) => {
+    cart.push({
+      name: item.name,
+      price: item.price,
+      type: item.grocery,
+      quantity: count[item.name],
+      subtotal: count[item.name] * item.price,
+      subtotalWithDiscount: count[item.name] * item.price,
+    });
+  });
 
-cart = [];
-uniqueArr.forEach(item => {
-  cart.push({
-    name: item.name,
-    price: item.price,
-    type: item.grocery,
-    quantity: count[item.name],
-    subtotal: count[item.name] * item.price,
-    subtotalWithDiscount: count[item.name] * item.price
-  })
-})
+  console.log("FINAL CART", cart);
+}
 
-console.log("FINAL CART",cart)
-
-  }
- 
-  // Using the "cartlist" array that contains all the items in the shopping cart,
-  // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
-
+// Using the "cartlist" array that contains all the items in the shopping cart,
+// generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
 
 // Exercise 5
 function applyPromotionsCart() {
- cart.forEach(item => {
-   if(item.name == "cooking oil" && item.quantity >= 3) {
-     item.subtotalWithDiscount = (item.subtotal * .80).toFixed(2);
-   }
-   else if (item.name == 'Pasta' && item.quantity >= 10) {
-      item.subtotalWithDiscount = (item.subtotal * .70).toFixed(2);
+  cart.forEach((item) => {
+    if (item.name == "cooking oil" && item.quantity >= 3) {
+      item.subtotalWithDiscount = (item.subtotal * 0.8).toFixed(2);
+    } else if (item.name == "Pasta" && item.quantity >= 10) {
+      item.subtotalWithDiscount = (item.subtotal * 0.7).toFixed(2);
     }
- })
- console.log("cart with discounts", cart)
+  });
+  console.log("cart with discounts", cart);
 }
-
-
-
 
 // ** Nivell II **
 
