@@ -8,8 +8,11 @@ var errorPassword = document.getElementById("errorPassword");
 var errorName = document.getElementById("errorName");
 var errorPhone = document.getElementById("errorPhone");
 
-// Exercise 6
+let emailVal = document.getElementById('fEmail').value
+// Exercise 
 function validate() {
+
+  console.log("My email", emailVal)
   // Validate fields entered by the user: name, phone, password, and email
 }
 
@@ -19,6 +22,7 @@ function validate() {
 //The phone must contain only numbers.
 //The password must include numbers and letters.
 //https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
+//https://designmodo.com/validate-forms-bootstrap/
 
 
 //Email must be in email format
