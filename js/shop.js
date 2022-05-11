@@ -71,7 +71,7 @@ function buy(id) {
   calculateTotal();
   generateCart();
   applyPromotionsCart();
-  
+  console.log("cart", cart)
   console.log("CartList", cartList);
 }
 
@@ -93,6 +93,8 @@ function generateCart() {
   cartList.forEach((element) => {
     count[element.name] = (count[element.name] || 0) + 1;
   });
+
+  console.log("count", count)
 
   const uniqueItems = [];
   //create a new array with only unique elements
@@ -144,6 +146,8 @@ function addToCart(id) {
   // Refactor previous code in order to simplify it
   // 1. Loop for to the array products to get the item to add to cart
   // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+
+
 }
 
 // Exercise 8
