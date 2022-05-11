@@ -1,9 +1,12 @@
 // Get the input fields
 var password = document.querySelector(".password");
-var phone = document.querySelector(".phone");
+//var phoneInput = document.querySelector(".phone");
 var firstNameInput = document.querySelector("#fName");
 var lastNameInput = document.querySelector("#fLastN");
 var emailInput = document.querySelector("#fEmail");
+var phoneInput = document.querySelector("#fPhone");
+var passwordInput = document.querySelector("#fPassword");
+var addressInput = document.querySelector("#fAddress");
 
 // Get the error elements
 var errorPassword = document.getElementById("errorPassword");
@@ -24,41 +27,31 @@ function validate() {
     let isFirstnameValid = checkName(
       firstNameInput.value.trim(),
       firstNameInput
-    );
+    ),
+    isLastnameValid = checkName(
+      lastNameInput.value.trim(), 
+      lastNameInput),
+    isEmailValid = checkEmail(),
+    isPhoneValid = checkPhone(),
+    isPasswordValid = checkPassword(),
+    isAddressValid = checkAddress();
 
-    let isLastnameValid = checkName(lastNameInput.value.trim(), lastNameInput);
-
-    let isFormValid = isFirstnameValid && isLastnameValid;
+    let isFormValid = isFirstnameValid && isLastnameValid && isEmailValid && isPhoneValid && isPasswordValid && isAddressValid;
 
     // submit to the server if the form is valid
     if (isFormValid) {
-      console.log("name correct!");
+      console.log("everything is correct!");
     }
   });
-  /*
-  Array.prototype.slice.call(forms).forEach(function (form) {
-    form.addEventListener(
-      "submit",
-      function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add("was-validated");
-      },
-      false
-    );
-  });
-  */
 }
 
-//All fields are required. - X in Bootstrap
-//All fields must be at least 3 characters long.
-//The name and surname must contain only letters.
-//The phone must contain only numbers.
-//The password must include numbers and letters.
+//All fields are required. - ✓ in Bootstrap
+//All fields must be at least 3 characters long. ✓
+//The name and surname must contain only letters. ✓
+//The phone must contain only numbers. ✓
+//The password must include numbers and letters. ✓
 //https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
-//https://designmodo.com/validate-forms-bootstrap/
+
 
 //Email must be in email format
 
@@ -69,8 +62,7 @@ const atLeastThree = (length, min) => (length < min ? false : true);
 const checkName = (nameVal, nameInput) => {
   let valid = false;
 
-  const min = 3,
-    max = 25;
+  const min = 3;
 
   if (!isRequired(nameVal)) {
     showError(nameInput, "Name cannot be blank.");
@@ -88,21 +80,65 @@ const checkName = (nameVal, nameInput) => {
 //
 const checkEmail = () => {
   let valid = false;
-  const email = emailEl.value.trim();
+  const email = emailInput.value.trim();
   if (!isRequired(email)) {
-    showError(emailEl, "Email cannot be blank.");
+    showError(emailInput, "Email cannot be blank.");
   } else if (!isEmailValid(email)) {
-    showError(emailEl, "Email is not valid.");
+    showError(emailInput, "Email is not valid.");
   } else {
-    showSuccess(emailEl);
+    showSuccess(emailInput);
     valid = true;
   }
   return valid;
 };
 
-const isInputLetters = (input) => {
-  return !/[^a-zA-Z]/.test(input);
+const checkPhone = () => {
+  let valid = false;
+  const phone = phoneInput.value.trim();
+  if (!isRequired(phone)) {
+    showError(phoneInput, "Phone cannot be blank.");
+  } else if (!isPhoneValid(phone)) {
+    showError(phoneInput, "Phone number must contain numbers.");
+  } else if (!isPhone9Digits(phone)) {
+    showError(phoneInput, "Phone number must have 9 digits.");
+  }else {
+    showSuccess(phoneInput);
+    valid = true;
+  }
+  return valid;
 };
+
+const checkPassword = () => {
+  let valid = false;
+  const password = passwordInput.value.trim();
+  if (!isRequired(password)) {
+    showError(passwordInput, "Password cannot be blank.");
+  } else if (!isPasswordValid(password)) {
+    showError(passwordInput, "Password must contain letters and numbers.");
+  } else if (!atLeastThree(password.length, 3)) {
+    showError(passwordInput, "Password must be at least 3 characters long.");
+  }else {
+    showSuccess(passwordInput);
+    valid = true;
+  }
+  return valid;
+};
+
+const checkAddress = () => {
+  let valid = false;
+  const address = addressInput.value.trim();
+  console.log("address",address.length);
+  if (!isRequired(address)) {
+    showError(addressInput, "Address cannot be blank.");
+  } else if (!atLeastThree(address.length, 3)) {
+    showError(addressInput, "Address must be at least 3 characters long.");
+  }else {
+    showSuccess(addressInput);
+    valid = true;
+  }
+  return valid;
+};
+
 
 const showSuccess = (input) => {
   // get the form-field element
@@ -115,6 +151,8 @@ const showSuccess = (input) => {
   // hide the error message
   const error = formField.querySelector("small");
   error.textContent = "";
+  //const success = document.querySelector(".correct");
+ // success.textContent = "success";
 };
 
 const showError = (input, message) => {
@@ -134,3 +172,27 @@ const isEmailValid = (email) => {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 };
+
+const isInputLetters = (input) => {
+  return !/[^a-zA-Z]/.test(input);
+};
+
+const isPhoneValid = (phoneNumber) => {
+  const re =
+  /^\d+$/;
+  return re.test(phoneNumber);
+};
+
+const isPhone9Digits = (phoneNumber) => {
+  const is9digits = /(?=.{9,})/
+  return is9digits.test(phoneNumber);
+};
+
+const isPasswordValid = (password) => {
+  const re =
+  /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))\S*/;
+
+  return re.test(password);
+};
+
+

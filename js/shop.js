@@ -69,9 +69,10 @@ function buy(id) {
   cartList.push(productArray[0]);
 
   calculateTotal();
-
   generateCart();
   applyPromotionsCart();
+  
+  console.log("CartList", cartList);
 }
 
 // Exercise 2
@@ -82,6 +83,7 @@ function cleanCart() {
 // Exercise 3
 function calculateTotal() {
   let total = cartList.reduce((sum, item) => sum + item.price, 0);
+  console.log("Total", total);
 }
 
 // Exercise 4
@@ -118,7 +120,6 @@ function generateCart() {
     });
   });
 
-  console.log("FINAL CART", cart);
 }
 
 // Using the "cartlist" array that contains all the items in the shopping cart,
@@ -133,7 +134,7 @@ function applyPromotionsCart() {
       item.subtotalWithDiscount = (item.subtotal * 0.7).toFixed(2);
     }
   });
-  console.log("cart with discounts", cart);
+  console.log("Cart with discounts applied", cart);
 }
 
 // ** Nivell II **
