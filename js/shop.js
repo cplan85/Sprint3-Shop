@@ -71,13 +71,20 @@ function buy(id) {
   calculateTotal();
   generateCart();
   applyPromotionsCart();
-  console.log("cart", cart)
+  updateCartDisplayTotal();
+  console.log("cart", cart);
   console.log("CartList", cartList);
 }
 
 // Exercise 2
 function cleanCart() {
+  cleanCartDisplay();
   cartList = [];
+  cart = [];
+
+  const sect = document.querySelector("#count_product");
+
+  sect.textContent = 0;
 }
 
 // Exercise 3
@@ -93,8 +100,6 @@ function generateCart() {
   cartList.forEach((element) => {
     count[element.name] = (count[element.name] || 0) + 1;
   });
-
-  console.log("count", count)
 
   const uniqueItems = [];
   //create a new array with only unique elements
@@ -121,7 +126,6 @@ function generateCart() {
       subtotalWithDiscount: count[item.name] * item.price,
     });
   });
-
 }
 
 // Using the "cartlist" array that contains all the items in the shopping cart,
@@ -139,6 +143,50 @@ function applyPromotionsCart() {
   console.log("Cart with discounts applied", cart);
 }
 
+// Exercise 6
+function printCart() {
+  const sect = document.querySelector("#cart_list");
+
+  //loop through childs of cart and remove all of them
+  cleanCartDisplay();
+
+  cart.forEach((item) => {
+    const tableRow = document.createElement("tr");
+    //create logic if 0 items in cart handler
+    const tableHeading = document.createElement("th");
+    tableHeading.textContent = item.name;
+
+    const tablePrice = document.createElement("td");
+    tablePrice.textContent = `$${item.price}`;
+
+    const tableQuantity = document.createElement("td");
+    tableQuantity.textContent = `${item.quantity}`;
+
+    const tableSubtotal = document.createElement("td");
+    tableSubtotal.textContent = `$${item.subtotal}`;
+
+    sect.appendChild(tableRow);
+    tableRow.appendChild(tableHeading);
+    tableRow.appendChild(tablePrice);
+    tableRow.appendChild(tableQuantity);
+    tableRow.appendChild(tableSubtotal);
+  });
+}
+
+function cleanCartDisplay() {
+  const sect = document.querySelector("#cart_list");
+
+  while (sect.lastElementChild) {
+    sect.removeChild(sect.lastElementChild);
+  }
+}
+
+function updateCartDisplayTotal() {
+  const cartTotalDisplay = document.querySelector("#count_product");
+  let total = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartTotalDisplay.textContent = total;
+}
+
 // ** Nivell II **
 
 // Exercise 7
@@ -146,21 +194,28 @@ function addToCart(id) {
   // Refactor previous code in order to simplify it
   // 1. Loop for to the array products to get the item to add to cart
   // 2. Add found product to the cart array or update its quantity in case it has been added previously.
-
-
 }
 
 // Exercise 8
 function removeFromCart(id) {
+  //fix code, it is wrong to use splice this way.
+
+  cart.forEach((item, idx) => {
+    if (item.id === id) {
+      if (item.quantity == 0) {
+        cart.splice(idx, 1);
+      } else {
+        item.quantity = item.quantity - 1;
+      }
+    }
+  });
+  console.log("cart from remove from Cart", cart);
   // 1. Loop for to the array products to get the item to add to cart
   // 2. Add found product to the cartList array
 }
 
 // Exercise 9
-function printCart() {
-  // Fill the shopping cart modal manipulating the shopping cart dom
-}
-
 function open_modal() {
   console.log("Open Modal");
+  printCart();
 }
