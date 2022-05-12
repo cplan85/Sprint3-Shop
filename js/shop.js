@@ -64,7 +64,8 @@ var cart = [];
 var total = 0;
 
 // Exercise 1
-function buy(id) {
+/*
+function Buy(id) {
   const productArray = products.filter((user) => user.id == id);
   cartList.push(productArray[0]);
 
@@ -75,6 +76,7 @@ function buy(id) {
   console.log("cart", cart);
   console.log("CartList", cartList);
 }
+*/
 
 // Exercise 2
 function cleanCart() {
@@ -83,17 +85,22 @@ function cleanCart() {
   cart = [];
 
   const sect = document.querySelector("#count_product");
+  const cartTotalDisplay = document.querySelector("#total_price");
+
 
   sect.textContent = 0;
+  cartTotalDisplay.textContent = 0;
 }
 
 // Exercise 3
 function calculateTotal() {
-  let total = cartList.reduce((sum, item) => sum + item.price, 0);
-  console.log("Total", total);
+  const cartTotalDisplay = document.querySelector("#total_price");
+  let total = cart.reduce((sum, item) => sum + item.subtotalWithDiscount, 0);
+ cartTotalDisplay.textContent = total.toFixed(2);
 }
 
 // Exercise 4
+/*
 function generateCart() {
   const count = {};
   // get the count for each products.
@@ -127,6 +134,7 @@ function generateCart() {
     });
   });
 }
+*/
 
 // Using the "cartlist" array that contains all the items in the shopping cart,
 // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
@@ -135,9 +143,9 @@ function generateCart() {
 function applyPromotionsCart() {
   cart.forEach((item) => {
     if (item.name == "cooking oil" && item.quantity >= 3) {
-      item.subtotalWithDiscount = (item.subtotal * 0.8).toFixed(2);
+      item.subtotalWithDiscount = item.subtotal * 0.8;
     } else if (item.name == "Pasta" && item.quantity >= 10) {
-      item.subtotalWithDiscount = (item.subtotal * 0.7).toFixed(2);
+      item.subtotalWithDiscount = item.subtotal * 0.7;
     }
   });
   console.log("Cart with discounts applied", cart);
@@ -163,7 +171,7 @@ function printCart() {
     tableQuantity.textContent = `${item.quantity}`;
 
     const tableSubtotal = document.createElement("td");
-    tableSubtotal.textContent = `$${item.subtotal}`;
+    tableSubtotal.textContent = `$${item.subtotalWithDiscount.toFixed(2)}`;
 
     sect.appendChild(tableRow);
     tableRow.appendChild(tableHeading);
@@ -181,40 +189,91 @@ function cleanCartDisplay() {
   }
 }
 
-function updateCartDisplayTotal() {
+function updateCartDisplayCount() {
   const cartTotalDisplay = document.querySelector("#count_product");
   let total = cart.reduce((sum, item) => sum + item.quantity, 0);
   cartTotalDisplay.textContent = total;
 }
 
 // ** Nivell II **
-
-// Exercise 7
+// Exercise 8
 function addToCart(id) {
   // Refactor previous code in order to simplify it
   // 1. Loop for to the array products to get the item to add to cart
   // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+
+ // cartlist is initial Array that needs to get cleaned up
+  const productArray = products.filter((user) => user.id == id);
+  cartList.push(productArray[0]);
+
+   // get the count for each products.
+   let count = {};
+   cartList.forEach((element) => {
+    count[element.name] = (count[element.name] || 0) + 1;
+  });
+  //create a new array with no repeating elements
+  uniqueArr = removeDuplicates(cartList);
+
+  //every time this function is called, cart must be made empty otherwise loop of unique items will keep being added.
+  cart = [];
+
+  uniqueArr.forEach((item) => {
+    cart.push({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      type: item.grocery,
+      quantity: count[item.name],
+      subtotal: count[item.name] * item.price,
+      subtotalWithDiscount: parseInt(count[item.name]) * item.price,
+    });
+  });
+
+  applyPromotionsCart();
+  calculateTotal();
+  updateCartDisplayCount();
+  
 }
 
-// Exercise 8
-function removeFromCart(id) {
-  //fix code, it is wrong to use splice this way.
+function removeDuplicates(array) {
+  const uniqueItems = [];
+  const uniqueArr = array.filter((element) => {
+    const isDuplicate = uniqueItems.includes(element.id);
+    if (!isDuplicate) {
+      uniqueItems.push(element.id);
 
-  cart.forEach((item, idx) => {
-    if (item.id === id) {
-      if (item.quantity == 0) {
-        cart.splice(idx, 1);
-      } else {
-        item.quantity = item.quantity - 1;
-      }
+      return true;
     }
+
+    return false;
   });
-  console.log("cart from remove from Cart", cart);
-  // 1. Loop for to the array products to get the item to add to cart
-  // 2. Add found product to the cartList array
+
+  return uniqueArr;
 }
 
 // Exercise 9
+function removeFromCart(id) {
+
+  cart.forEach((item, idx) => {
+    if (item.id === id) {
+      if (item.quantity == 1) {
+        cart.splice(idx, 1);
+      } else {
+        item.quantity = item.quantity - 1;
+        item.subtotal = item.subtotal - item.price;
+      }
+    }
+  });
+  updateCartDisplayCount();
+  // 1. Loop for to the array products to get the item to add to cart
+  // 2. Add found product to the cartList array
+  const matchesID = (element) => element.id === id;
+
+  let cartListIdx = cartList.findIndex(matchesID);
+  cartList.splice(cartListIdx, 1);
+  calculateTotal();
+}
+
 function open_modal() {
   console.log("Open Modal");
   printCart();
