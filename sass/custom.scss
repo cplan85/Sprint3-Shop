@@ -2,19 +2,98 @@ $primary: #939356;
 $secondary: #f59223;
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&display=swap');
+
 // $primary: #939356;
 
-header {
-    background: 
-    linear-gradient(to right,
-    rgba(green, 0.9), rgba(green, 0.3))
-    ,url('../images/Shop-HeroImage.jpg') center top;
-    background-size: cover;
-    background-color: rgb(201, 234, 141);
-    height: 75vh;
+// header {
+//     background: 
+//     linear-gradient(to right,
+//     rgba(green, 0.9), rgba(green, 0.3))
+//     ,url('../images/Shop-HeroImage.jpg') center top;
+//     background-size: cover;
+//     background-color: rgb(201, 234, 141);
+//     height: 75vh;
+// }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cart-image {
+    height:25%;
+}
+
+.grocery-heading, .beauty-heading {
+    position:relative;
+}
+
+.grocery-background {
+    position:absolute;
+    right: 40%;
+    height: 70%;
+    width: 150%;
+    top: 45%;
+    z-index: -1;
+    border-radius: 0px 5rem 10rem 0rem;
+    background-color: #f9c4a2;
+}
+
+.beauty-background {
+    position: absolute;
+    left: 40%;
+    height: 60%;
+    width: 150%;
+    top: 55%;
+    z-index: -1;
+    border-radius: 5rem 0px 0px 10rem;
+    background-color: #7dcadb;
+}
+
+.btn-primary, .btn-secondary {
+    color:white;
+}
+
+.carousel-item {
+    height:75vh;
+    position:relative;
+}
+
+.carousel-item > div {
+    position: absolute;
+    top: 40%;
+    left: 33%;
+}
+
+.carousel-item:nth-child(2) > div {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+
+.carousel-item:nth-child(3) > div {
+    position: absolute;
+    top: 70%;
+    left: 35%;
+}
+
+.carousel-inner {
+    height:100%;
+}
+
+header > div > div {
+    height:100%;
 }
 
 .card {
     padding: 2rem;
     border-radius: 1.5rem;
+}
+
+footer {
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
 }

@@ -4,6 +4,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&display=swap");
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -11957,16 +11958,85 @@ fieldset:disabled .btn {
   }
 }
 
-header {
-  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 128, 0, 0.9)), to(rgba(0, 128, 0, 0.3))), url("../images/Shop-HeroImage.jpg") center top;
-  background: linear-gradient(to right, rgba(0, 128, 0, 0.9), rgba(0, 128, 0, 0.3)), url("../images/Shop-HeroImage.jpg") center top;
-  background-size: cover;
-  background-color: #c9ea8d;
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cart-image {
+  height: 25%;
+}
+
+.grocery-heading, .beauty-heading {
+  position: relative;
+}
+
+.grocery-background {
+  position: absolute;
+  right: 40%;
+  height: 70%;
+  width: 150%;
+  top: 45%;
+  z-index: -1;
+  border-radius: 0px 5rem 10rem 0rem;
+  background-color: #f9c4a2;
+}
+
+.beauty-background {
+  position: absolute;
+  left: 40%;
+  height: 60%;
+  width: 150%;
+  top: 55%;
+  z-index: -1;
+  border-radius: 5rem 0px 0px 10rem;
+  background-color: #7dcadb;
+}
+
+.btn-primary, .btn-secondary {
+  color: white;
+}
+
+.carousel-item {
   height: 75vh;
+  position: relative;
+}
+
+.carousel-item > div {
+  position: absolute;
+  top: 40%;
+  left: 33%;
+}
+
+.carousel-item:nth-child(2) > div {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+}
+
+.carousel-item:nth-child(3) > div {
+  position: absolute;
+  top: 70%;
+  left: 35%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+header > div > div {
+  height: 100%;
 }
 
 .card {
   padding: 2rem;
   border-radius: 1.5rem;
+}
+
+footer {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
 }
 /*# sourceMappingURL=custom.css.map */
