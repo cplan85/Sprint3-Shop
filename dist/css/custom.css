@@ -12005,6 +12005,13 @@ html, body {
   background-color: #f9c4a2;
 }
 
+.grocery-hero-caption {
+  position: absolute;
+  right: 70%;
+  top: 60%;
+  width: 25%;
+}
+
 .beauty-background {
   position: absolute;
   left: 40%;
