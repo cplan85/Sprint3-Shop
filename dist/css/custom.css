@@ -11964,6 +11964,28 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.footer-shape {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.left-footer-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5rem 0 0 50vw;
+  border-color: transparent transparent transparent #eed9c8;
+}
+
+.right-footer-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 5rem 50vw;
+  border-color: transparent transparent #f3e0d1 transparent;
+}
+
 .cart-image {
   height: 25%;
 }
@@ -11991,7 +12013,7 @@ html, body {
   top: 55%;
   z-index: -1;
   border-radius: 5rem 0px 0px 10rem;
-  background-color: #7dcadb;
+  background-color: #acdbe7;
 }
 
 .btn-primary, .btn-secondary {
