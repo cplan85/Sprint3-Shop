@@ -5,54 +5,63 @@ var products = [
     name: "cooking oil",
     price: 10.5,
     type: "grocery",
+    img: "./images/Cooking Oil.svg",
   },
   {
     id: 2,
     name: "Pasta",
     price: 6.25,
     type: "grocery",
+    img: "./images/pasta.png",
   },
   {
     id: 3,
     name: "Instant cupcake mixture",
     price: 5,
     type: "grocery",
+    img: "./images/cupcake.png",
   },
   {
     id: 4,
     name: "All-in-one",
     price: 260,
     type: "beauty",
+    img: "./images/all-in-one.svg",
   },
   {
     id: 5,
     name: "Zero Make-up Kit",
     price: 20.5,
     type: "beauty",
+    img: "./images/zero-makeup-kit.svg",
   },
   {
     id: 6,
     name: "Lip Tints",
     price: 12.75,
     type: "beauty",
+    img: "./images/lip-tints.svg",
   },
   {
     id: 7,
     name: "Lawn Dress",
     price: 15,
     type: "clothes",
+    img: "./images/Lawn Dress.svg",
   },
   {
     id: 8,
     name: "Lawn-Chiffon Combo",
     price: 19.99,
     type: "clothes",
+    img: "./images/Lawn-chiffon.svg",
   },
   {
     id: 9,
     name: "Toddler Frock",
     price: 9.99,
     type: "clothes",
+    img: "./images/toddler-frock.svg",
   },
 ];
 // Array with products (objects) added directly with push(). Products in this array are repeated.
@@ -87,7 +96,6 @@ function cleanCart() {
   const sect = document.querySelector("#count_product");
   const cartTotalDisplay = document.querySelector("#total_price");
 
-
   sect.textContent = 0;
   cartTotalDisplay.textContent = 0;
 }
@@ -96,7 +104,7 @@ function cleanCart() {
 function calculateTotal() {
   const cartTotalDisplay = document.querySelector("#total_price");
   let total = cart.reduce((sum, item) => sum + item.subtotalWithDiscount, 0);
- cartTotalDisplay.textContent = total.toFixed(2);
+  cartTotalDisplay.textContent = total.toFixed(2);
 }
 
 // Exercise 4
@@ -164,6 +172,12 @@ function printCart() {
     const tableHeading = document.createElement("th");
     tableHeading.textContent = item.name;
 
+    const img = document.createElement("img");
+    console.log("item img", item);
+    img.src = item.img;
+    img.style.width = "5rem";
+    img.style.borderBottom = "1px solid #dee2e6";
+
     const tablePrice = document.createElement("td");
     tablePrice.textContent = `$${item.price}`;
 
@@ -175,6 +189,7 @@ function printCart() {
 
     sect.appendChild(tableRow);
     tableRow.appendChild(tableHeading);
+    tableRow.appendChild(img);
     tableRow.appendChild(tablePrice);
     tableRow.appendChild(tableQuantity);
     tableRow.appendChild(tableSubtotal);
@@ -202,13 +217,13 @@ function addToCart(id) {
   // 1. Loop for to the array products to get the item to add to cart
   // 2. Add found product to the cart array or update its quantity in case it has been added previously.
 
- // cartlist is initial Array that needs to get cleaned up
+  // cartlist is initial Array that needs to get cleaned up
   const productArray = products.filter((user) => user.id == id);
   cartList.push(productArray[0]);
 
-   // get the count for each products.
-   let count = {};
-   cartList.forEach((element) => {
+  // get the count for each products.
+  let count = {};
+  cartList.forEach((element) => {
     count[element.name] = (count[element.name] || 0) + 1;
   });
   //create a new array with no repeating elements
@@ -226,13 +241,13 @@ function addToCart(id) {
       quantity: count[item.name],
       subtotal: count[item.name] * item.price,
       subtotalWithDiscount: parseInt(count[item.name]) * item.price,
+      img: item.img,
     });
   });
 
   applyPromotionsCart();
   calculateTotal();
   updateCartDisplayCount();
-  
 }
 
 function removeDuplicates(array) {
@@ -253,7 +268,6 @@ function removeDuplicates(array) {
 
 // Exercise 9
 function removeFromCart(id) {
-
   cart.forEach((item, idx) => {
     if (item.id === id) {
       if (item.quantity == 1) {

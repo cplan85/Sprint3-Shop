@@ -54,7 +54,7 @@
 		 </nav>
 
         <!-- Header-->
-        <header class="mb-0" >
+        <header class="mb-0 header-main" >
 			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 				<div class="carousel-indicators">
 				  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -65,8 +65,8 @@
 				  
 				</div>
 				<div class="carousel-inner h-75">
-				  <div class="carousel-item active">
-					<img src="./images/Shop-HeroImage.jpg" class="d-block w-100" alt="...">
+				  <div class="carousel-item active hero-slider ">
+					<img src="./images/Shop-HeroImage.jpg" class="d-block w-100 hero-slider-img" alt="...">
 					<div class="text-center text-black">
 						<h1 class="display-4 fw-bolder">IT Academy Shop</h1>
 						<p class="lead fw-normal text-grey-50 mb-0">Get up to 50% off Today Only!</p>
@@ -74,7 +74,7 @@
 				</div>
 				  <div class="carousel-item">
 					<img src="./images/Header2.jpg" class="d-block w-100" alt="...">
-					<div class="text-center text-black">
+					<div class="text-center text-white">
 						<h1 class="display-4 fw-bolder">IT Academy Shop</h1>
 						<p class="lead fw-normal text-grey-50 mb-0">Get up to 50% off Today Only!</p>
 					</div>
@@ -105,8 +105,8 @@
 			  </div>
         </header>
 		<!-- Section-->
-		<section class="pt-5" id="grocery">
-			<div class="grocery-heading mb-5">
+		<section class="pt-0 pt-md-2 pt-lg-5" id="grocery">
+			<div class="grocery-heading mb-5 pt-0 mt-0">
 				<div class="grocery-hero-caption">
 					<h2>Beauty you Want. Deals You Love.</h2>
 					<p class="mt-4">Never miss a deal. We bring you the best prices for your clean beauty favorites. Explore over 3400+ beauty products for all needs and all budgets.</p>
@@ -116,7 +116,7 @@
 			</div>
 			<div class="container px-4 px-lg-5 mt-5 pt-5">
 				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-5 pt-5">
-					<div class="col mb-5">
+					<div class="col col-12 col-md-6 col-lg-4 mb-5">
 						<div class="card h-100 shadow-md">
 							<img class="card-img-top" src="./images/Cooking Oil.svg" alt="..." />
 							<div class="card-body p-4">
@@ -127,11 +127,11 @@
 							</div>
 							<div class="card-footer d-flex flex-column p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center"><button type="button" onclick="addToCart(1)" class="btn btn-primary btn-lg text-white w-100">Add to cart</button></div>
-								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(1)" class="btn btn-secondary btn-lg text-white">Remove item</button></div>
+								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(1)" class="btn btn-secondary btn-lg text-white w-100">Remove item</button></div>
 							</div>
 						</div>
 					</div>
-					<div class="col mb-5">
+					<div class="col col-12 col-md-6 col-lg-4 mb-5">
 						<div class="card h-100">
 							<img class="card-img-top" src="./images/pasta.png" alt="..." />
 							<div class="card-body p-4">
@@ -142,11 +142,11 @@
 							</div>
 							<div class="card-footer d-flex flex-column p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center"><button type="button" onclick="addToCart(2)" class="btn btn-primary btn-lg  w-100">Add to cart</button></div>
-								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(2)" class="btn btn-secondary btn-lg ">Remove item</button></div>
+								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(2)" class="btn btn-secondary btn-lg w-100">Remove item</button></div>
 							</div>
 						</div>
 					</div>
-					<div class="col mb-5">
+					<div class="col col-12 col-md-6 col-lg-4 mb-5">
 						<div class="card h-100">
 							<img class="card-img-top" src="./images/cupcake.png" alt="..." />
 							<div class="card-body p-4">
@@ -157,7 +157,7 @@
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center"><button type="button" onclick="addToCart(3)" class="btn btn-primary btn-lg text-white w-100">Add to cart</button></div>
-								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(3)" class="btn btn-secondary btn-lg text-white">Remove item</button></div>
+								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(3)" class="btn btn-secondary btn-lg text-white w-100">Remove item</button></div>
 							</div>
 						</div>
 					</div>
@@ -176,7 +176,7 @@
 			</div>
 			<div class="container px-4 px-lg-5 mt-5 pt-5">
 				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center pt-5 mt-5">
-					<div class="col mb-5">
+					<div class="col mb-5 col-12 col-md-6 col-lg-4">
 						<div class="card h-100">
 							<img class="card-img-top" src="./images/all-in-one.svg" alt="..." />
 							<div class="card-body p-4">
@@ -187,11 +187,11 @@
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center"><button type="button" onclick="addToCart(4)" class="btn btn-primary btn-lg  w-100">Add to cart</button></div>
-								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(4)" class="btn btn-secondary btn-lg ">Remove item</button></div>
+								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(4)" class="btn btn-secondary btn-lg w-100">Remove item</button></div>
 							</div>
 						</div>
 					</div>
-					<div class="col mb-5">
+					<div class="col mb-5 col-12 col-md-6 col-lg-4">
 						<div class="card h-100">
 							<img class="card-img-top" src="./images/zero-makeup-kit.svg" alt="..." />
 							<div class="card-body p-4">
@@ -202,11 +202,11 @@
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center"><button type="button" onclick="addToCart(5)" class="btn btn-primary btn-lg  w-100">Add to cart</button></div>
-								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(5)" class="btn btn-secondary btn-lg ">Remove item</button></div>
+								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(5)" class="btn btn-secondary btn-lg w-100">Remove item</button></div>
 							</div>
 						</div>
 					</div>
-					<div class="col mb-5">
+					<div class="col mb-5 col-12 col-md-6 col-lg-4">
 						<div class="card h-100">
 							<img class="card-img-top" src="./images/lip-tints.svg" alt="..." />
 							<div class="card-body p-4">
@@ -217,7 +217,7 @@
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center"><button type="button" onclick="addToCart(6)" class="btn btn-primary btn-lg  w-100">Add to cart</button></div>
-								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(6)" class="btn btn-secondary btn-lg ">Remove item</button></div>
+								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(6)" class="btn btn-secondary btn-lg w-100">Remove item</button></div>
 							</div>
 						</div>
 					</div>
@@ -227,12 +227,12 @@
 		</section>
 		<section class="pt-5" id="clothes">
 			<div class="grocery-heading mb-5">
-				<div class="grocery-background"></div>
-				<h2 class="text-center"><img class="img-fluid" src="./images/groccery-icon2.svg" alt="..." />Clothes</h2>
+				<div class="cloth-background"></div>
+				<h2 class="text-center"><img class="img-fluid" src="./images/cloths-section.svg" alt="..." />Clothes</h2>
 			</div>
 			<div class="container px-4 px-lg-5 mt-5 pt-5">
 				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-5">
-					<div class="col mb-5">
+					<div class="col mb-5 col-12 col-md-6 col-lg-4">
 						<div class="card h-100">
 							<img class="card-img-top" src="./images/Lawn Dress.svg" alt="..." />
 							<div class="card-body p-4">
@@ -243,11 +243,11 @@
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center"><button type="button" onclick="addToCart(7)" class="btn btn-primary btn-lg text-white w-100">Add to cart</button></div>
-								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(7)" class="btn btn-secondary btn-lg text-white">Remove item</button></div>
+								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(7)" class="btn btn-secondary btn-lg text-white w-100">Remove item</button></div>
 							</div>
 						</div>
 					</div>
-					<div class="col mb-5">
+					<div class="col mb-5 col-12 col-md-6 col-lg-4">
 						<div class="card h-100">
 							<img class="card-img-top" src="./images/Lawn-chiffon.svg" alt="..." />
 							<div class="card-body p-4">
@@ -258,11 +258,11 @@
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center"><button type="button" onclick="addToCart(8)" class="btn btn-primary btn-lg text-white w-100">Add to cart</button></div>
-								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(8)" class="btn btn-secondary btn-lg text-white">Remove item</button></div>
+								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(8)" class="btn btn-secondary btn-lg text-white w-100">Remove item</button></div>
 							</div>
 						</div>
 					</div>
-					<div class="col mb-5">
+					<div class="col mb-5 col-12 col-md-6 col-lg-4">
 						<div class="card h-100">
 							<img class="card-img-top" src="./images/toddler-frock.svg" alt="..." />
 							<div class="card-body p-4">
@@ -273,7 +273,7 @@
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center"><button type="button" onclick="addToCart(9)" class="btn btn-primary btn-lg text-white w-100">Add to cart</button></div>
-								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(9)" class="btn btn-secondary btn-lg text-white">Remove item</button></div>
+								<div class="text-center mt-4"><button type="button" onclick="removeFromCart(9)" class="btn btn-secondary btn-lg text-white w-100">Remove item</button></div>
 							</div>
 						</div>
 					</div>
@@ -304,6 +304,7 @@
 					<thead>
 						<tr>
 						  <th scope="col">Product</th>
+						  <th scope="col">Image</th>
 						  <th scope="col">Price</th>
 						  <th scope="col">Qty.</th>
 						  <th scope="col">Total <small>(with discount)</small></th>

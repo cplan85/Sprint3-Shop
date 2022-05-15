@@ -11970,6 +11970,10 @@ html, body {
   display: flex;
 }
 
+.hero-slider-img {
+  z-index: -1;
+}
+
 .left-footer-triangle {
   width: 0;
   height: 0;
@@ -12005,11 +12009,44 @@ html, body {
   background-color: #f9c4a2;
 }
 
+.cloth-background {
+  position: absolute;
+  right: 40%;
+  height: 70%;
+  width: 150%;
+  top: 45%;
+  z-index: -1;
+  border-radius: 0px 5rem 10rem 0rem;
+  background-color: #f3e0d1;
+}
+
 .grocery-hero-caption {
   position: absolute;
   right: 70%;
   top: 60%;
   width: 25%;
+}
+
+@media (max-width: 576px) {
+  .left-footer-triangle {
+    border-color: transparent transparent transparent #f6e1cc;
+  }
+  .right-footer-triangle {
+    border-color: transparent transparent #fbe6d2 transparent;
+  }
+  .header-main {
+    height: 50vh;
+  }
+  .carousel-item > img {
+    height: 42vh;
+  }
+  .grocery-hero-caption > h2, .grocery-hero-caption > .h2 {
+    margin-top: 4rem;
+    font-size: 3vw;
+  }
+  .grocery-hero-caption > p {
+    font-size: 2vw;
+  }
 }
 
 .beauty-background {
@@ -12034,20 +12071,11 @@ html, body {
 
 .carousel-item > div {
   position: absolute;
-  top: 40%;
-  left: 33%;
-}
-
-.carousel-item:nth-child(2) > div {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-}
-
-.carousel-item:nth-child(3) > div {
-  position: absolute;
-  top: 70%;
-  left: 35%;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding-top: 25%;
 }
 
 .carousel-inner {
