@@ -147,9 +147,12 @@ const showSuccess = (input) => {
   // remove the error class
   formField.classList.remove("error");
   formField.classList.add("success");
+  input.classList.add("is-valid");
+  input.classList.remove("is-invalid");
+  
 
   // hide the error message
-  const error = formField.querySelector("small");
+  const error = formField.querySelector(".error-message");
   error.textContent = "";
   //const success = document.querySelector(".correct");
  // success.textContent = "success";
@@ -161,9 +164,10 @@ const showError = (input, message) => {
   // add the error class
   formField.classList.remove("success");
   formField.classList.add("error");
+  input.classList.add("is-invalid");
 
   // show the error message
-  const error = formField.querySelector("small");
+  const error = formField.querySelector(".error-message");
   error.textContent = message;
 };
 

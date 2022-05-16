@@ -26,6 +26,10 @@ html, body {
     display:flex;
 }
 
+.error-message {
+    color: red;
+  }
+
 
 .hero-slider-img {
   z-index:-1;
@@ -173,4 +177,5 @@ footer {
     height: 50vh;
     background-size: cover;
     background-position: center;
+    color: black;
 }
