@@ -12031,28 +12031,6 @@ html, body {
   width: 25%;
 }
 
-@media (max-width: 576px) {
-  .left-footer-triangle {
-    border-color: transparent transparent transparent #f6e1cc;
-  }
-  .right-footer-triangle {
-    border-color: transparent transparent #fbe6d2 transparent;
-  }
-  .header-main {
-    height: 50vh;
-  }
-  .carousel-item > img {
-    height: 42vh;
-  }
-  .grocery-hero-caption > h2, .grocery-hero-caption > .h2 {
-    margin-top: 4rem;
-    font-size: 3vw;
-  }
-  .grocery-hero-caption > p {
-    font-size: 2vw;
-  }
-}
-
 .beauty-background {
   position: absolute;
   left: 40%;
@@ -12100,5 +12078,51 @@ footer {
   background-size: cover;
   background-position: center;
   color: black;
+}
+
+@media (max-width: 992px) {
+  header {
+    margin-bottom: 5rem;
+  }
+  .left-footer-triangle {
+    border-color: transparent transparent transparent #f6e1cc;
+  }
+  .right-footer-triangle {
+    border-color: transparent transparent #fbe6d2 transparent;
+  }
+  .header-main {
+    height: 50vh;
+  }
+  .grocery-hero-caption > h2, .grocery-hero-caption > .h2 {
+    font-size: 3vw;
+  }
+  .grocery-hero-caption > p {
+    font-size: 1.5vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item > div {
+    padding-top: 50%;
+  }
+  .left-footer-triangle {
+    border-color: transparent transparent transparent #f6e1cc;
+  }
+  .right-footer-triangle {
+    border-color: transparent transparent #fbe6d2 transparent;
+  }
+  .header-main {
+    height: 50vh;
+  }
+  .carousel-item > img {
+    height: 35vh;
+  }
+  .grocery-hero-caption > h2, .grocery-hero-caption > .h2 {
+    margin-top: 4rem;
+    font-size: 3vw;
+  }
+  .grocery-hero-caption > p {
+    font-size: 2vw;
+  }
 }
 /*# sourceMappingURL=custom.css.map */
