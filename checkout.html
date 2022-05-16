@@ -134,6 +134,7 @@
                 type="text"
                 placeholder="First Name"
                 required
+                onblur="console.log('test')"
               />
               <div id="errorName" class="invalid-feedback">
                
@@ -151,6 +152,7 @@
                 placeholder="Email"
                 minlength="3"
                 required
+                onblur="validate(event)"
               />
               <div id="errorEmail" class="invalid-feedback">
               </div>

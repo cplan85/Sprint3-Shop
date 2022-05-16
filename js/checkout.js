@@ -197,6 +197,34 @@ const isPasswordValid = (password) => {
   /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))\S*/;
 
   return re.test(password);
+
 };
+
+form.addEventListener('blur', (event) => {
+  
+  event.preventDefault();
+
+  // validate fields
+  let isFirstnameValid = checkName(
+    firstNameInput.value.trim(),
+    firstNameInput
+  ),
+  isLastnameValid = checkName(
+    lastNameInput.value.trim(), 
+    lastNameInput),
+  isEmailValid = checkEmail(),
+  isPhoneValid = checkPhone(),
+  isPasswordValid = checkPassword(),
+  isAddressValid = checkAddress();
+
+  let isFormValid = isFirstnameValid && isLastnameValid && isEmailValid && isPhoneValid && isPasswordValid && isAddressValid;
+
+  // submit to the server if the form is valid
+  if (isFormValid) {
+    console.log("everything is correct!");
+  }
+  //registerValidate();
+}, true);
+
 
 

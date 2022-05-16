@@ -173,10 +173,11 @@ function printCart() {
     tableHeading.textContent = item.name;
 
     const img = document.createElement("img");
-    console.log("item img", item);
     img.src = item.img;
+
+    const tableImage = document.createElement("td");
     img.style.width = "5rem";
-    img.style.borderBottom = "1px solid #dee2e6";
+    tableImage.style.borderBottom = "1px solid #dee2e6";
 
     const tablePrice = document.createElement("td");
     tablePrice.textContent = `$${item.price}`;
@@ -189,7 +190,8 @@ function printCart() {
 
     sect.appendChild(tableRow);
     tableRow.appendChild(tableHeading);
-    tableRow.appendChild(img);
+    tableRow.appendChild(tableImage);
+    tableImage.appendChild(img);
     tableRow.appendChild(tablePrice);
     tableRow.appendChild(tableQuantity);
     tableRow.appendChild(tableSubtotal);
