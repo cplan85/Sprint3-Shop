@@ -18,10 +18,9 @@ var forms = document.querySelectorAll(".needs-validation");
 const form = document.querySelector(".needs-validation");
 
 // Exercise
-function validate() {
-  form.addEventListener("submit", function (e) {
+function validate(event) {
     // prevent the form from submitting
-    e.preventDefault();
+    event.preventDefault();
 
     // validate fields
     let isFirstnameValid = checkName(
@@ -42,8 +41,20 @@ function validate() {
     if (isFormValid) {
       console.log("everything is correct!");
     }
-  });
+ 
 }
+
+  form.addEventListener("submit", (e) => {
+    // prevent the form from submitting
+    validate(e);
+  });
+
+  form.addEventListener('blur', (e) => {
+  
+    validate(e);
+    //registerValidate();
+  }, true);
+
 
 //All fields are required. - ✓ in Bootstrap
 //All fields must be at least 3 characters long. ✓
@@ -200,31 +211,7 @@ const isPasswordValid = (password) => {
 
 };
 
-form.addEventListener('blur', (event) => {
-  
-  event.preventDefault();
 
-  // validate fields
-  let isFirstnameValid = checkName(
-    firstNameInput.value.trim(),
-    firstNameInput
-  ),
-  isLastnameValid = checkName(
-    lastNameInput.value.trim(), 
-    lastNameInput),
-  isEmailValid = checkEmail(),
-  isPhoneValid = checkPhone(),
-  isPasswordValid = checkPassword(),
-  isAddressValid = checkAddress();
-
-  let isFormValid = isFirstnameValid && isLastnameValid && isEmailValid && isPhoneValid && isPasswordValid && isAddressValid;
-
-  // submit to the server if the form is valid
-  if (isFormValid) {
-    console.log("everything is correct!");
-  }
-  //registerValidate();
-}, true);
 
 
 
