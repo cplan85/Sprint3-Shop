@@ -4,12 +4,12 @@
     <img src="images/Sprint3-2.png" alt="Sprint 3-header image">
   </a>
   <a href="https://cp-sprint3-shop.netlify.app/">View Demo</a>
+<br/>
+E-Commerce layout mock-up website that allows users to modify shopping cart with personal information and form validation. Per the final and bonus step in our assignment, we were required to style the website however we wanted. For this, I used Bootstrap, custom SCSS, and modified SVG images in Illustrator to maintain theme colors. The Bootstrap Carousel and Card component are used thoroughout the site.
 
-    E-Commerce layout mock-up website that allows users to modify shopping cart with personal information and form validation. Per the final and bonus step in our assignment, we were required to style the website however we wanted. For this, I used Bootstrap, custom SCSS, and modified SVG images in Illustrator to maintain theme colors. The Bootstrap Carousel and Card component are used thoroughout the site.
+<img src="images/Shop-Now2.png" alt="site screenshot 1">
 
-
-
-    Original instructions provided below for reference.
+Original instructions provided below for reference.
 
 ## Introduction
 
