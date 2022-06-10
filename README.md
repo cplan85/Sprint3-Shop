@@ -1,30 +1,39 @@
 # Sprint 3 IT Academy | Shop
 
+<a href="https://github.com/cplan85/Sprint3-Shop">
+    <img src="images/Sprint3-2.png" alt="Sprint 3-header image">
+  </a>
+  <a href="https://cp-sprint3-shop.netlify.app/">View Demo</a>
+
+    E-Commerce layout mock-up website that allows users to modify shopping cart with personal information and form validation. Per the final and bonus step in our assignment, we were required to style the website however we wanted. For this, I used Bootstrap, custom SCSS, and modified SVG images in Illustrator to maintain theme colors. The Bootstrap Carousel and Card component are used thoroughout the site.
+
+
+
+    Original instructions provided below for reference.
+
 ## Introduction
 
 A company in the e-commerce sector has asked us for a web application that allows them to offer the purchase of their products through the internet.
 
 You will be in charge of setting up an initial demo version of the application for the client: management of the shopping cart and the application of the promotions on the final price. You have 2 weeks to finish, which is how long this sprint lasts.
 
-<br>
-
 ## Requirements
 
-
 1. Clone this repo
+
 ```bash
 $ git clone https://github.com/itacademyReact/starter-code-sprint3.git
 ```
 
 2. Unlink your repo from the itacademy repository.
-(Explanation: You have to upload the code to your GitHub repository, not to the IT Academy repository. That's why you have to unlink your project from IT Academy GitHub with the following command)
+   (Explanation: You have to upload the code to your GitHub repository, not to the IT Academy repository. That's why you have to unlink your project from IT Academy GitHub with the following command)
 
 ```bash
 $ git remote rm origin
 ```
 
 3. Link your repo to the repository you have to create in your github account.
-(Explanation: Now your project is not linked to any remote repository. In order to upload your code, you have to link your project to the new repository created on github.com using the following command)
+   (Explanation: Now your project is not linked to any remote repository. In order to upload your code, you have to link your project to the new repository created on github.com using the following command)
 
 ```bash
 $ git remote add origin <your repo name!>
@@ -44,8 +53,6 @@ $ git push origin master
 
 2. Upload the link to the virtual campus so that your mentor can correct it and give you feedback.
 
-
-
 <br>
 
 ## Additional Information
@@ -53,7 +60,6 @@ $ git push origin master
 The statement of the exercise is available on the virtual campus.
 
 <br>
-
 
 ## Instructions
 
